@@ -11,6 +11,7 @@
         android:id="@+id/edt_name"
         android:layout_width="0dp"
         android:layout_height="56dp"
+        android:text="assdasdsad"
         android:textColorHint="@color/blue_sky"
         android:hint="@string/hint_name"
         android:padding="5dp"
@@ -26,6 +27,7 @@
         android:id="@+id/edt_family"
         android:layout_width="0dp"
         android:layout_height="56dp"
+        android:text="assdasdsad"
         android:layout_marginTop="8dp"
         android:background="@drawable/boarder_edit_text"
         android:hint="@string/hint_family"
@@ -41,6 +43,7 @@
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/edt_mobile"
         android:layout_width="0dp"
+        android:text="09150284545"
         android:layout_height="56dp"
         android:layout_marginTop="8dp"
         android:maxLength="11"
@@ -58,6 +61,7 @@
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/edt_static_mobile"
         android:layout_width="0dp"
+        android:text="09150284545"
         android:layout_height="56dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="16dp"

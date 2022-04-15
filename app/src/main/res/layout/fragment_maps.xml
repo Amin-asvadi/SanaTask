@@ -11,9 +11,9 @@
         android:layout_height="match_parent">
 
         <Button
-            android:id="@+id/btnSavaLatLong"
+            android:id="@+id/btn_next_to_details"
             android:layout_width="0dp"
-            android:text="مرحله بعد"
+            android:text="@string/btn_next_to_details"
             android:background="#4CAF50"
             android:layout_height="56dp"
             app:layout_constraintBottom_toTopOf="@+id/guide_horizontal_bottom"

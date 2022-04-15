@@ -7,7 +7,7 @@ data class Name(
     val first_name: String,
     val gender: String,
     val last_name: String,
-    val lat: List<Double>,
-    val lng: List<Double>,
+    val lat: List<Double>?,
+    val lng: List<Double>?,
     val region: Int
 )

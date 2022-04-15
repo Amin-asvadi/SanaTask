@@ -11,8 +11,6 @@ import com.devzillas.mytaskkotlin.data.model.ResponseItem
 import com.devzillas.mytaskkotlin.repository.InformationRepository
 import com.devzillas.mytaskkotlin.utile.NetworkDataState
 import com.devzillas.mytaskkotlin.utile.NetworkLinstener
-import com.google.gson.Gson
-import com.google.gson.GsonBuilder
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.launch
@@ -22,24 +20,19 @@ import javax.inject.Inject
 
 
 @HiltViewModel
-class MainFragmentViewModel @Inject constructor(
+class MapFragmentViewModel @Inject constructor(
     private val repository: InformationRepository,
     @ApplicationContext private val context: Context
 ) : ViewModel() {
     val client_info: MutableLiveData<NetworkDataState<ResponseItem>> = MutableLiveData()
-    val strarg: MutableLiveData<NetworkDataState<ResponseItem>> = MutableLiveData()
-
-
+    var address: MutableLiveData<Name> = MutableLiveData()
     init {
-        postInformation()
-
+        postInformation(address.value)
     }
-
-    fun postInformation() = viewModelScope.launch {
-        safeInformationCall()
+    fun postInformation(value: Name?) = viewModelScope.launch {
+        safeInformationCall(value)
     }
-
-    private suspend fun safeInformationCall() {
+    private suspend fun safeInformationCall(value: Name?) {
         try {
             if (NetworkLinstener.hasInternetConnection(context)) {
                 val lat = mutableListOf(35.7717503)
@@ -55,7 +48,7 @@ class MainFragmentViewModel @Inject constructor(
                     long,
                     1
                 )
-                val response = repository.postInformation(PostInfo(nameObject))
+                val response = repository.postInformation(PostInfo(value))
                 client_info.postValue(handleInformationResponse(response))
             } else {
                 client_info.postValue(NetworkDataState.Error("No Internet Connection"))
@@ -68,6 +61,7 @@ class MainFragmentViewModel @Inject constructor(
             }
         }
     }
+
 
     private fun handleInformationResponse(response: Response<ResponseItem>): NetworkDataState<ResponseItem> {
         when {
