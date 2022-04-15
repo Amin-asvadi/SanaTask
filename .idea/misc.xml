@@ -3,9 +3,20 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/boarder_edit_text.xml" value="0.144" />
+        <entry key="app/src/main/res/drawable/btn_back.xml" value="0.144" />
+        <entry key="app/src/main/res/drawable/ic_arrow_back_24.xml" value="0.144" />
+        <entry key="app/src/main/res/drawable/ic_back_arrow.xml" value="0.144" />
+        <entry key="app/src/main/res/drawable/male_female.xml" value="0.144" />
+        <entry key="app/src/main/res/drawable/pink_out_line.xml" value="0.144" />
+        <entry key="app/src/main/res/drawable/toggle_widget_background.xml" value="0.144" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.17028985507246377" />
+        <entry key="app/src/main/res/layout/address_gender.xml" value="0.22" />
         <entry key="app/src/main/res/layout/fragment_information_client.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/fragment_main.xml" value="0.17028985507246377" />
+        <entry key="app/src/main/res/layout/fragment_main.xml" value="0.2" />
+        <entry key="app/src/main/res/layout/fragment_maps.xml" value="0.17028985507246377" />
+        <entry key="app/src/main/res/layout/include_male_female_btn.xml" value="0.19375" />
+        <entry key="app/src/main/res/layout/input_edits_client.xml" value="0.1" />
       </map>
     </option>
   </component>
@@ -14,5 +25,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.22" />
+      </ProjectState>
+    </option>
   </component>
 </project>

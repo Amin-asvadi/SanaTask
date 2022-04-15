@@ -2,4 +2,15 @@
     <string name="app_name">MyTaskKotlin</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="register">ثبت نام</string>
+    <string name="enter_information">لطفا اطلاعات خود را وارد کنید</string>
+    <string name="hint_name">نام</string>
+    <string name="hint_family">نام خانوادگی</string>
+    <string name="hint_mobile">شماره همراه</string>
+    <string name="hint_phone">شماره ثابت</string>
+    <string name="adress">آدرس دقیق</string>
+    <string name="gender">جنسیت</string>
+    <string name="next_level">مرحله بعد</string>
+    <string name="female">خانم</string>
+    <string name="male">آقا</string>
 </resources>
