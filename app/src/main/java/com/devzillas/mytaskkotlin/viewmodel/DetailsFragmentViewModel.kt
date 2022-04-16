@@ -5,8 +5,6 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.devzillas.mytaskkotlin.data.model.Name
-import com.devzillas.mytaskkotlin.data.model.PostInfo
 import com.devzillas.mytaskkotlin.data.model.ResponseItem
 import com.devzillas.mytaskkotlin.repository.InformationRepository
 import com.devzillas.mytaskkotlin.utile.NetworkDataState
@@ -18,43 +16,41 @@ import retrofit2.Response
 import java.io.IOException
 import javax.inject.Inject
 
-
 @HiltViewModel
-class MapFragmentViewModel @Inject constructor(
+class DetailsFragmentViewModel @Inject constructor(
     private val repository: InformationRepository,
     @ApplicationContext private val context: Context
-) : ViewModel() {
-    val client_info: MutableLiveData<NetworkDataState<ResponseItem>> = MutableLiveData()
-    var address: MutableLiveData<Name> = MutableLiveData()
+):ViewModel() {
+    val client_information: MutableLiveData<NetworkDataState<ArrayList<ResponseItem>>> = MutableLiveData()
+
 
     init {
-        postInformation(address.value)
+        getInformation()
     }
 
-    fun postInformation(value: Name?) = viewModelScope.launch {
-        safeInformationCall(value)
+    fun getInformation() = viewModelScope.launch {
+        safeInformationCall()
     }
 
-    private suspend fun safeInformationCall(value: Name?) {
-        client_info.postValue(NetworkDataState.Loading())
+    private suspend fun safeInformationCall() {
+        client_information.postValue(NetworkDataState.Loading())
         try {
             if (NetworkLinstener.hasInternetConnection(context)) {
-                val response = repository.postInformation(PostInfo(value))
-                client_info.postValue(handleInformationResponse(response))
+                val response = repository.getInformation()
+                client_information.postValue(handleBreakingNewsResponse(response))
             } else {
-                client_info.postValue(NetworkDataState.Error("No Internet Connection"))
+                 client_information.postValue(NetworkDataState.Error("No Internet Connection"))
             }
         } catch (ex: Exception) {
-            Log.d("TAGsafeInformationCall", "safeInformationCall:${ex.message} ")
             when (ex) {
-                is IOException -> client_info.postValue(NetworkDataState.Error("Network Failure"))
-                else -> client_info.postValue(NetworkDataState.Error("Conversion Error"))
+                is IOException -> client_information.postValue(NetworkDataState.Error("Network Failure"))
+                 else -> client_information.postValue(NetworkDataState.Error("Conversion Error"))
             }
         }
     }
 
 
-    private fun handleInformationResponse(response: Response<ResponseItem>): NetworkDataState<ResponseItem> {
+    private fun handleBreakingNewsResponse(response: Response<ArrayList<ResponseItem>>):NetworkDataState<ArrayList<ResponseItem>>  {
         when {
             response.message().toString().contains("timeout") -> {
                 return NetworkDataState.Error("Timeout")
@@ -69,4 +65,7 @@ class MapFragmentViewModel @Inject constructor(
             }
         }
     }
+
 }
+
+

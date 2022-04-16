@@ -14,8 +14,9 @@
             android:id="@+id/btn_next_to_details"
             android:layout_width="0dp"
             android:text="@string/btn_next_to_details"
-            android:background="#4CAF50"
+            android:background="@drawable/btn_back"
             android:layout_height="56dp"
+            android:backgroundTint="@color/blue_sky"
             app:layout_constraintBottom_toTopOf="@+id/guide_horizontal_bottom"
             app:layout_constraintEnd_toStartOf="@+id/guide_vertical_right"
             app:layout_constraintStart_toStartOf="@+id/guide_vertical_left" />
@@ -45,6 +46,19 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:context=".ui.fragments.MapsFragment" />
+
+        <ProgressBar
+            android:id="@+id/paginationProgressBar"
+            style="?attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/map" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

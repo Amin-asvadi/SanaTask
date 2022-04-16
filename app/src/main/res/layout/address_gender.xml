@@ -20,7 +20,7 @@
         android:layout_width="0dp"
         android:layout_height="56dp"
         android:padding="8dp"
-        android:text="safasasfasf"
+
         android:background="@drawable/boarder_edit_text"
         android:inputType="textMultiLine"
         android:layout_marginTop="8dp"

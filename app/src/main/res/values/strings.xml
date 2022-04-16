@@ -14,4 +14,8 @@
     <string name="female">خانم</string>
     <string name="male">آقا</string>
     <string name="btn_next_to_details">مرحله بعد</string>
+    <string name="name_and_family">نام:</string>
+    <string name="family">نام خانوادگی:</string>
+    <string name="client_address">آدرس :</string>
+    <string name="mobile_number">شماره موبایل :</string>
 </resources>
